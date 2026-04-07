@@ -3,252 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>90-Tage Transformation · Andermatt Swiss Alps AG</title>
+<title>90-Tage IT Transformation · Andermatt Swiss Alps AG</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Performance Optimization: Use will-change to hint browser to use GPU for transitions */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; will-change: auto; }
-
-:root {
-  --cream:    #f4f1eb;
-  --cream2:   #ece9e1;
-  --cream3:   #e2ddd4;
-  --ink:      #1c1916;
-  --ink2:     #3d3830;
-  --ink3:     #7a7166;
-  --ink4:     #b0a898;
-  --gold:     #9e8c6b;
-  --gold2:    #c4aa7d;
-  --border:   #d9d3c8;
-  --white:    #faf8f4;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans:  'Inter', -apple-system, sans-serif;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f4f1eb;--cream2:#ece9e1;--ink:#1c1916;--ink2:#3d3830;--ink3:#7a7166;--ink4:#b0a898;
+  --gold:#9e8c6b;--gold2:#c4aa7d;--border:#d9d3c8;--white:#faf8f4;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;
 }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--cream);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.7;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  content-visibility: auto;
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased}
+header{position:sticky;top:0;z-index:100;background:rgba(244,241,235,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.hi{max-width:1200px;margin:0 auto;padding:0 48px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--serif);font-size:15px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:14px}
+.bd{width:1px;height:18px;background:var(--border)}
+.br{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.hn{font-size:12px;letter-spacing:.06em;color:var(--ink3)}
+.hn strong{color:var(--ink);font-weight:600}
+.intro{max-width:1200px;margin:0 auto;padding:56px 48px 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;border-bottom:1px solid var(--border)}
+.ey{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.ey::before{content:'';width:28px;height:1px;background:var(--gold);display:block}
+.intro h1{font-family:var(--serif);font-size:clamp(36px,4.5vw,60px);font-weight:500;line-height:1.12;letter-spacing:-.01em;color:var(--ink)}
+.intro h1 em{font-style:italic;color:var(--gold)}
+.it{font-size:15px;color:var(--ink2);line-height:1.8;font-weight:400;margin-bottom:32px}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.mb{background:var(--cream);padding:18px 16px;text-align:center}
+.mv{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);display:block;line-height:1;margin-bottom:5px}
+.ml{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4)}
+.phases{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
+.pl{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink4);margin-bottom:28px}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.pc{background:var(--cream);display:flex;flex-direction:column}
+.ph{padding:28px 24px 22px;border-bottom:1px solid var(--border)}
+.pn{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--border);display:block;line-height:1;margin-bottom:14px;letter-spacing:-.03em}
+.plbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.pt{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:10px}
+.pg2{font-size:13px;color:var(--ink2);line-height:1.65;font-weight:400}
+.pf{margin-top:16px;padding:12px 14px;background:var(--cream2);border:1px solid var(--border);font-size:12px;color:var(--ink2);line-height:1.5}
+.pfl{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.tl{flex:1}
+.tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.tr:last-child{border-bottom:none}
+.tr:hover{background:rgba(0,0,0,.02)}
+.tr.open{background:var(--white)}
+.tt{padding:14px 24px;display:flex;align-items:center;gap:12px}
+.td2{width:6px;height:6px;border-radius:50%;border:1.5px solid var(--ink4);flex-shrink:0}
+.tn{font-size:13px;font-weight:500;color:var(--ink);flex:1;line-height:1.4}
+.tc{font-size:9px;color:var(--ink4);transition:transform .2s;flex-shrink:0}
+.tr.open .tc{transform:rotate(180deg)}
+.tb{display:none;padding:0 24px 16px 42px}
+.tr.open .tb{display:block}
+.td{font-size:13px;color:var(--ink3);line-height:1.7;font-weight:400}
+.qs{background:var(--ink);padding:56px 48px}
+.qi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
+.qh{font-family:var(--serif);font-size:28px;font-weight:500;color:var(--cream);line-height:1.3}
+.qh em{font-style:italic;color:var(--gold2)}
+.qs2{font-size:12px;color:var(--ink4);margin-top:10px;line-height:1.6}
+.ql{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ql li{font-size:13px;color:#c8c0b4;line-height:1.6;font-weight:400;padding-left:16px;border-left:2px solid #3d3830;transition:border-color .2s,color .2s}
+.ql li:hover{border-left-color:var(--gold);color:var(--cream)}
+footer{border-top:1px solid var(--border);background:var(--cream)}
+.fi{max-width:1200px;margin:0 auto;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.fn{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink)}
+.fc{font-size:12px;color:var(--ink4);margin-top:3px}
+.ft{display:flex;gap:10px;flex-wrap:wrap}
+.ftag{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);padding:6px 12px;border:1px solid var(--border)}
+@media(max-width:860px){
+  .intro{grid-template-columns:1fr;gap:36px;padding:40px 24px 36px}
+  .mg{grid-template-columns:repeat(2,1fr)}
+  .pg{grid-template-columns:1fr}
+  .phases{padding:36px 24px 60px}
+  .qi{grid-template-columns:1fr;gap:32px}
+  .ql{grid-template-columns:1fr}
+  .qs{padding:48px 24px}
 }
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  background: rgba(244,241,235,0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 48px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand-wordmark { font-family: var(--serif); font-size: 17px; letter-spacing: 0.06em; text-transform: uppercase; }
-
-.hero {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 96px 48px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  border-bottom: 1px solid var(--border);
-}
-
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(44px, 5vw, 72px);
-  font-weight: 500;
-  line-height: 1.1;
-}
-
-.months-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.month-card { background: var(--cream); transition: transform 0.2s ease; }
-
-.task-chevron { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
-.task-row.open .task-chevron { transform: rotate(180deg); }
-
-.task-body {
-  display: none;
-  padding: 0 28px 20px 48px;
-  animation: slideDown 0.2s ease-out;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.task-row.open .task-body { display: block; }
-
-.status-tag {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 4px 10px;
-  border: 1px solid;
-}
-
-.status-planned { border-color: var(--border); color: var(--ink4); }
-.status-progress { border-color: var(--ink2); color: var(--ink2); }
-.status-done { border-color: var(--gold); color: var(--gold); }
-
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding: 48px 24px; }
-  .months-grid { grid-template-columns: 1fr; }
-}
-
-footer {
-  border-top: 1px solid var(--border);
-  background: var(--cream);
-  padding: 40px 48px;
-}
-
-.footer-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+@media(max-width:600px){.fi{flex-direction:column;align-items:flex-start;padding:28px 24px}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="header-inner">
-    <div class="brand-wordmark">Andermatt Swiss Alps · IT Transformation</div>
-    <div class="meta-item">Kandidat <strong>Hasan Turhal</strong></div>
+  <div class="hi">
+    <div class="brand">Andermatt Swiss Alps<div class="bd"></div><span class="br">IT Transformation</span></div>
+    <div class="hn">Kandidat <strong>Hasan Turhal</strong></div>
   </div>
 </header>
 
-<section class="hero">
+<section class="intro">
   <div>
-    <h1>Governance &<br><em>Prozesse</em><br>in 90 Tagen</h1>
+    <div class="ey">Interim Head of IT Support</div>
+    <h1>Governance &amp;<br><em>Prozesse</em><br>in 90 Tagen</h1>
   </div>
   <div>
-    <p style="margin-bottom: 24px; color: var(--ink2);">Mandat zur Etablierung nachhaltiger ITIL-Prozesse und Governance im Hospitality-Bereich.</p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div><strong>3 Monate</strong><br><small>Mandatsdauer</small></div>
-        <div><strong>4 Tage</strong><br><small>Vor Ort Präsenz</small></div>
+    <p class="it">Saubere ITIL-Prozesse, eine transparente Applikationslandschaft und Governance die das Team nach dem Mandat selbstständig trägt. Kein fertiger Plan – ein Denkrahmen, den wir gemeinsam schärfen.</p>
+    <div class="mg">
+      <div class="mb"><span class="mv">3</span><span class="ml">Monate</span></div>
+      <div class="mb"><span class="mv">4</span><span class="ml">Tage vor Ort</span></div>
+      <div class="mb"><span class="mv">5</span><span class="ml">Tage verfügbar</span></div>
+      <div class="mb"><span class="mv">08–20</span><span class="ml">Uhr erreichbar</span></div>
     </div>
   </div>
 </section>
 
-<div class="content-section" style="max-width: 1280px; margin: 0 auto; padding: 64px 48px;">
-  <div id="monthsGrid" class="months-grid"></div>
+<div class="phases">
+  <div class="pl">Drei Phasen</div>
+  <div class="pg" id="phasesGrid"></div>
+</div>
+
+<div class="qs">
+  <div class="qi">
+    <div>
+      <div class="qh">Was ich als erstes<br><em>verstehen</em> möchte</div>
+      <p class="qs2">Dieser Plan ist ein Gesprächsangebot, keine Vorgabe. Die Antworten auf diese Fragen entscheiden, wie wir die drei Phasen konkret gestalten.</p>
+    </div>
+    <ul class="ql">
+      <li>Wie gross ist das IT-Team heute – und welche Erfahrung bringt es mit?</li>
+      <li>Welche Systeme sind geschäftskritisch – PMS, POS, Ski-Ticketing, F&amp;B?</li>
+      <li>Welche Incidents oder Ausfälle haben diese Initiative ausgelöst?</li>
+      <li>Wie viele externe Vendoren und Partner sind im IT-Betrieb involviert?</li>
+      <li>Wie weit ist die Toolmigration (FreshService → JSM) fortgeschritten?</li>
+      <li>Was soll am Ende intern selbstständig weitergeführt werden können?</li>
+    </ul>
+  </div>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div style="font-family: var(--serif); font-size: 18px; font-weight: 600;">Hasan Turhal</div>
-      <div style="font-size: 13px; color: var(--ink3);">+41 76 465 87 21 · h.turhal@gmail.com</div>
-    </div>
-    <div style="display: flex; gap: 32px;">
-      <div><small style="display:block; font-size:9px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink4);">Standort</small>Andermatt, UR</div>
-      <div><small style="display:block; font-size:9px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink4);">Start</small>April 2026</div>
+  <div class="fi">
+    <div><div class="fn">Hasan Turhal</div><div class="fc">+41 76 465 87 21 · h.turhal@me.com</div></div>
+    <div class="ft">
+      <span class="ftag">Andermatt · April 2026</span>
+      <span class="ftag">ITIL · Governance</span>
+      <span class="ftag">Interim 90 Tage</span>
     </div>
   </div>
 </footer>
 
 <script>
-const roadmap = [
-  {
-    month: 1,
-    title: "Verstehen & Stabilisieren",
-    goal: "Sofortige Wirkung entfalten und Vertrauen im Team aufbauen.",
-    tasks: [
-      { name: "IST-Analyse: Tickets & Systeme", status: "planned", desc: "Vollständige Aufnahme der Applikationslandschaft und Schatten-IT." },
-      { name: "Team-Onboarding", status: "planned", desc: "Gespräche mit Marc zur strategischen Ausrichtung, gefolgt vom Onboarding mit dem IT-Team." },
-      { name: "Incident-Klassifikation P1–P4", status: "planned", desc: "Einheitliches Schema für Hospitality-Betrieb (24/7)." },
-      { name: "SLA-Targets & Eskalationspfade", status: "planned", desc: "Reaktionszeiten und Entscheidungswege definieren." }
-    ]
-  },
-  {
-    month: 2,
-    title: "Prozesse & Struktur",
-    goal: "Problem- und Change-Prozesse einführen.",
-    tasks: [
-      { name: "Root-Cause-Analyse", status: "planned", desc: "Top-10 wiederkehrende Incidents eliminieren." },
-      { name: "Known-Error-Database (KEDB)", status: "planned", desc: "Wissensdatenbank für schnellere Lösungen." },
-      { name: "RFC-Prozess (lightweight)", status: "planned", desc: "Schlanke Freigaben für geplante Änderungen." },
-      { name: "Applikationslandschaft bereinigen", status: "planned", desc: "Inventarisierung und Konsolidierung." }
-    ]
-  },
-  {
-    month: 3,
-    title: "Governance & Übergabe",
-    goal: "Prozesse institutionalisieren.",
-    tasks: [
-      { name: "Prozessdokumentation", status: "planned", desc: "Playbooks für Incident, Problem & Change." },
-      { name: "Team-Enablement", status: "planned", desc: "Schulung des IT-Teams auf neue Prozesse." },
-      { name: "IT-Ops-Reporting", status: "planned", desc: "Monatliches Dashboard für Marc." },
-      { name: "90-Tage-Bericht & Übergabe", status: "planned", desc: "Abschlussbericht und Übergabeempfehlung." }
-    ]
-  }
+const phases=[
+  {num:"01",label:"Phase I · Monat 1",title:"Verstehen & Stabilisieren",goal:"Sofortige Wirkung ohne alles umzuwerfen. Vertrauen aufbauen, Lage verstehen, ersten Prozess verankern.",focus:{label:"Ziel am Ende",text:"Incident-Prozess live · SLA-Baseline definiert · Vendor-Mapping vollständig"},tasks:[
+    {n:"Team & Betrieb kennenlernen",d:"Gespräche mit dem bestehenden IT-Team: was funktioniert, wo geht Zeit verloren, was fehlt. Keine Vorgaben in Woche 1 – zuhören kommt zuerst."},
+    {n:"Applikationslandschaft & Vendor-Mapping",d:"Alle Systeme erfassen: PMS, POS, Ski-Ticketing, F&B, Building Management. Externe Vendoren, Verträge und Support-SLAs dokumentieren. Schatten-IT sichtbar machen – das ist oft das grösste Risiko."},
+    {n:"Incident-Klassifikation P1–P4",d:"Einheitliches Prioritätsschema passend zum 24/7-Hotelbetrieb. P1 = kritischer Ausfall, P4 = Low Priority. Klar, einfach, von jedem anwendbar."},
+    {n:"SLA-Targets & Eskalationspfade",d:"Reaktions- und Lösungszeiten je Priorität. Klare Eskalationskette für Nachtausfälle – auch ohne meine physische Präsenz funktionierend."},
+    {n:"Incident-Prozess in JSM abbilden",d:"Workflows, SLA-Konfiguration, Automatisierungen. Erstes Ticket-Dashboard für Marc und Nicole – Transparenz von Tag 1."}
+  ]},
+  {num:"02",label:"Phase II · Monat 2",title:"Prozesse & Struktur",goal:"Wiederkehrende Probleme lösen statt verwalten. Change-Prozess einführen. Applikationslandschaft bereinigen.",focus:{label:"Ziel am Ende",text:"Problem-Log aktiv · Change-Prozess etabliert · App-Register sauber"},tasks:[
+    {n:"Wiederkehrende Incidents analysieren",d:"Top-Wiederholungstickets aus Monat 1 identifizieren. Ursachen verstehen, Massnahmen definieren. Die Known-Error-Database entsteht parallel – nicht danach."},
+    {n:"RFC-Prozess einführen",d:"Schlankes Change-Formular: Transparenz über geplante Änderungen ohne Bürokratie. Passend für ein kleines Team mit grossem Betriebsdruck."},
+    {n:"Mini-CAB etablieren",d:"Change Advisory Board: Marc + Nicole + IT-Lead. Kurzes, regelmässiges Fenster – kein Overhead, aber ein gemeinsamer Rhythmus."},
+    {n:"Applikationslandschaft bereinigen",d:"Auf Basis des Vendor-Mappings aus Monat 1: Redundanzen abbauen, Vertragsrisiken adressieren, CMDB-Basis aufbauen."},
+    {n:"Problem-Review-Cadence",d:"Regelmässiges Problem-Review mit dem Team. Was ist gelöst, was braucht Eskalation – kurz und strukturiert."}
+  ]},
+  {num:"03",label:"Phase III · Monat 3",title:"Governance & Übergabe",goal:"Prozesse gehören dem Team – nicht mir. Klare Verantwortlichkeiten, saubere Dokumentation, definierter Zielzustand.",focus:{label:"Ziel am Ende",text:"IT-Lead owned alle Prozesse · ITSM vollständig live · Übergabe dokumentiert"},tasks:[
+    {n:"Prozesse dokumentieren",d:"Runbooks für Incident, Problem und Change – verständlich, praxisnah, nicht für die Schublade."},
+    {n:"Verantwortlichkeiten zuordnen",d:"Wer owned was nach dem Mandat? Der interne IT-Lead übernimmt die Prozesse – mit Namen, Rolle und klarem Scope."},
+    {n:"IT-Ops-Reporting für Nicole",d:"Monatliches Dashboard: SLA-Performance, offene Probleme, Change-Übersicht. Automatisiert – kein manueller Aufwand für das Team."},
+    {n:"Team befähigen",d:"Gemeinsame Bearbeitung echter Tickets nach den neuen Prozessen. Nicht Theorie, sondern Praxis. Das Team agiert selbstständig – ich werde überflüssig."},
+    {n:"90-Tage-Bericht & Übergabe",d:"Was wurde erreicht, was läuft weiter, Empfehlungen für die nächsten 6 Monate. Übergabe an interne Stelle oder Nachfolger mit definiertem Profil."}
+  ]}
 ];
 
-function init() {
-  const grid = document.getElementById('monthsGrid');
-  const html = roadmap.map((m, mi) => `
-    <div class="month-card">
-      <div style="padding: 32px; border-bottom: 1px solid var(--border);">
-        <h2 style="font-family: var(--serif); margin-bottom: 8px;">0${m.month} — ${m.title}</h2>
-        <p style="font-size: 13px; color: var(--ink2);">${m.goal}</p>
+function render(){
+  document.getElementById('phasesGrid').innerHTML=phases.map((p,pi)=>`
+    <div class="pc">
+      <div class="ph">
+        <span class="pn">${p.num}</span>
+        <div class="plbl">${p.label}</div>
+        <div class="pt">${p.title}</div>
+        <div class="pg2">${p.goal}</div>
+        <div class="pf"><div class="pfl">${p.focus.label}</div>${p.focus.text}</div>
       </div>
-      <div class="task-list">
-        ${m.tasks.map((t, ti) => `
-          <div class="task-row" data-task="${mi}-${ti}" style="border-bottom: 1px solid var(--border); cursor: pointer;">
-            <div style="padding: 16px 32px; display: flex; align-items: center; justify-content: space-between;">
-              <span style="font-size: 13px; font-weight: 500;">${t.name}</span>
-              <span class="task-chevron">▾</span>
-            </div>
-            <div class="task-body" style="padding: 0 32px 20px;">
-              <p style="font-size: 13px; margin-bottom: 12px; color: var(--ink2);">${t.desc}</p>
-              <span class="status-tag status-${t.status}">Geplant</span>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-
-  grid.innerHTML = html;
-
-  grid.addEventListener('click', (e) => {
-    const row = e.target.closest('.task-row');
-    if (row) row.classList.toggle('open');
-  });
+      <div class="tl">${p.tasks.map((t,ti)=>`
+        <div class="tr" id="tr-${pi}-${ti}" onclick="tog(${pi},${ti})">
+          <div class="tt"><div class="td2"></div><div class="tn">${t.n}</div><div class="tc">▾</div></div>
+          <div class="tb"><div class="td">${t.d}</div></div>
+        </div>`).join('')}</div>
+    </div>`).join('');
 }
-
-document.addEventListener('DOMContentLoaded', init);
+function tog(pi,ti){document.getElementById(`tr-${pi}-${ti}`).classList.toggle('open')}
+render();
 </script>
 </body>
 </html>
