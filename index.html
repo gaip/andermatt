@@ -387,31 +387,6 @@ header {
   line-height: 1.5;
 }
 
-.month-progress {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.prog-bar {
-  flex: 1;
-  height: 2px;
-  background: var(--border);
-}
-
-.prog-fill {
-  height: 100%;
-  background: var(--gold);
-}
-
-.prog-text {
-  font-size: 10px;
-  color: var(--ink4);
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-}
-
 /* ─── TASKS ──────────────────────────────────────── */
 .task-list { flex: 1; }
 
@@ -471,38 +446,7 @@ header {
   font-size: 13px;
   color: var(--ink2);
   line-height: 1.75;
-  margin-bottom: 12px;
   font-weight: 400;
-}
-
-.task-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.status-tag {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 4px 10px;
-  border: 1px solid;
-}
-
-.status-planned { border-color: var(--border); color: var(--ink4); }
-.status-progress { border-color: var(--ink2); color: var(--ink2); }
-.status-done { border-color: var(--gold); color: var(--gold); }
-
-.week-tag {
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  color: var(--ink4);
-  font-weight: 400;
-  padding: 3px 8px;
-  background: var(--cream2);
-  border: 1px solid var(--border);
 }
 
 /* ─── PRESENCE STRIP ────────────────────────────── */
@@ -901,6 +845,108 @@ const roadmap = [
     phase: "Phase I",
     title: "Verstehen & Stabilisieren",
     goal: "Sofortige Wirkung entfalten und Vertrauen im Team aufbauen – ohne alles auf einmal umzuwerfen.",
+    period: "Monat 1",
+    deliverable: { icon: "◆", label: "Ziel am Ende", text: "Incident-Prozess live · Ticket-Dashboard · SLA-Baseline definiert" },
+    tasks: [
+      { name: "IST-Analyse: Tickets & Systeme", desc: "Laufende Tickets sichten, Applikationslandschaft aufnehmen – was läuft, was ist Schatten-IT, was ist undokumentiert?", status: "planned" },
+      { name: "Team-Onboarding", desc: "Gespräche mit dem bestehenden Team: was funktioniert, wo verliert man Zeit, was fehlt? Vertrauen als Fundament – nicht über das Team hinweg.", status: "planned" },
+      { name: "Incident-Klassifikation definieren", desc: "Einheitliches Prioritätsschema (P1–P4) passend zum 24/7-Hotelbetrieb. Klar, einfach, von jedem anwendbar.", status: "planned" },
+      { name: "SLA-Targets & Eskalationspfade", desc: "Response- und Resolution-Zeiten je Priorität. Wer entscheidet was – auch nachts. Abgestimmt mit Marc und Nicole.", status: "planned" },
+      { name: "Incident-Prozess in JSM umsetzen", desc: "Alles technisch in Jira Service Management abbilden: Workflows, SLAs, Automatisierungen, erstes Dashboard.", status: "planned" }
+    ]
+  },
+  {
+    month: 2,
+    phase: "Phase II",
+    title: "Prozesse & Struktur",
+    goal: "Problem- und Change-Prozesse einführen. Wiederholungen eliminieren. Applikationslandschaft bereinigen.",
+    period: "Monat 2",
+    deliverable: { icon: "◆", label: "Ziel am Ende", text: "Problem-Log · Change-Prozess aktiv · Applikations-Register" },
+    tasks: [
+      { name: "Wiederkehrende Incidents analysieren", desc: "Top-Wiederholungstickets identifizieren, Ursachen verstehen, Massnahmen definieren. Probleme lösen, nicht nur verwalten.", status: "planned" },
+      { name: "Known-Error-Database aufbauen", desc: "Bekannte Fehler mit Workarounds dokumentiert – das Team findet Lösungen schneller, ohne jeden Fall neu zu analysieren.", status: "planned" },
+      { name: "RFC-Prozess einführen", desc: "Schlankes Change-Formular für geplante Änderungen. Keine Bürokratie – aber Transparenz über was wann geändert wird.", status: "planned" },
+      { name: "Mini-CAB etablieren", desc: "Change Advisory Board: Marc + Nicole + IT-Lead. Kurzes, regelmässiges Fenster zur Genehmigung geplanter Änderungen.", status: "planned" },
+      { name: "Applikationslandschaft bereinigen", desc: "Alle Systeme, Owners und Abhängigkeiten dokumentieren. Redundanzen sichtbar machen, Schatten-IT adressieren.", status: "planned" }
+    ]
+  },
+  {
+    month: 3,
+    phase: "Phase III",
+    title: "Governance & Übergabe",
+    goal: "Prozesse institutionalisieren. Das Team trägt sie selbst – auch wenn ich weg bin.",
+    period: "Monat 3",
+    deliverable: { icon: "◆", label: "Ziel am Ende", text: "Governance dokumentiert · 90-Tage-Bericht · Team selbstständig" },
+    tasks: [
+      { name: "Prozesse dokumentieren", desc: "Runbooks und Playbooks für Incident, Problem und Change – verständlich, praxisnah, kein Consultingsprech.", status: "planned" },
+      { name: "Verantwortlichkeiten zuordnen", desc: "Klare RACI: Wer owned was nach dem Mandat? Keine Abhängigkeit von einer einzelnen Person.", status: "planned" },
+      { name: "IT-Ops-Reporting einführen", desc: "Monatliches Dashboard-Reporting für Nicole: SLA-Performance, offene Probleme, Change-Übersicht. Automatisiert, kein Aufwand.", status: "planned" },
+      { name: "Team befähigen", desc: "Praxisnahes Einarbeiten des Teams auf alle Prozesse – nicht Theorie, sondern echte Tickets gemeinsam bearbeiten.", status: "planned" },
+      { name: "90-Tage-Bericht & Übergabe", desc: "Was wurde erreicht, was bleibt offen, Empfehlungen für die Weiterführung. Übergabe an Nachfolger oder permanente Stelle.", status: "planned" }
+    ]
+  }
+];
+
+function renderTimeline() {
+  document.getElementById('timelineSteps').innerHTML = roadmap.map((m, i) => `
+    <div class="t-step active" onclick="scrollToEl('month-${i}')">
+      <div class="t-num">0${m.month}</div>
+      <div class="t-name">${m.title}</div>
+      <div class="t-weeks">${m.period}</div>
+    </div>
+  `).join('');
+}
+
+function renderMonths() {
+  document.getElementById('monthsGrid').innerHTML = roadmap.map((m, mi) => `
+    <div class="month-card" id="month-${mi}">
+      <div class="month-head">
+        <span class="month-num">0${m.month}</span>
+        <div class="month-phase">${m.phase}</div>
+        <div class="month-title">${m.title}</div>
+        <div class="month-goal">${m.goal}</div>
+        <div class="month-deliverable">
+          <div class="del-icon">${m.deliverable.icon}</div>
+          <div class="del-body">
+            <div class="del-label">${m.deliverable.label}</div>
+            <div class="del-text">${m.deliverable.text}</div>
+          </div>
+        </div>
+      </div>
+      <div class="task-list">
+        ${m.tasks.map((t, ti) => `
+          <div class="task-row" id="tr-${mi}-${ti}" onclick="toggleTask(${mi},${ti})">
+            <div class="task-top">
+              <div class="task-dot ${t.status === 'done' ? 'done' : t.status === 'progress' ? 'progress' : ''}"></div>
+              <div class="task-name">${t.name}</div>
+              <div class="task-chevron">▾</div>
+            </div>
+            <div class="task-body">
+              <div class="task-desc">${t.desc}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleTask(mi, ti) {
+  document.getElementById(`tr-${mi}-${ti}`).classList.toggle('open');
+}
+
+function scrollToEl(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+renderTimeline();
+renderMonths();
+</script>
+  {
+    month: 1,
+    phase: "Phase I",
+    title: "Verstehen & Stabilisieren",
+    goal: "Sofortige Wirkung entfalten und Vertrauen im Team aufbauen – ohne alles auf einmal umzuwerfen.",
     weeks: "Wochen 1–4 · KW 15–18",
     deliverable: { icon: "◆", label: "Deliverable", text: "Incident-Prozess live · Ticket-Dashboard · SLA-Baseline" },
     tasks: [
@@ -925,105 +971,6 @@ const roadmap = [
       { name: "Problem-Review-Cadence einführen", desc: "2× pro Monat strukturiertes Problem-Review-Meeting mit dem Team. Fokus: Was ist neu, was wurde gelöst, was braucht Eskalation?", status: "planned", weeks: ["KW 20"] },
       { name: "RFC-Prozess definieren (lightweight)", desc: "Request for Change: einfaches, schlankes Formular für geplante Änderungen. Keine Bürokratie – aber Transparenz darüber, was wann geändert wird.", status: "planned", weeks: ["KW 20", "KW 21"] },
       { name: "Mini-CAB einrichten", desc: "Change Advisory Board Minimalversion: Marc + Nicole + IT-Lead. Wöchentliches 30-Min-Fenster zur Genehmigung geplanter Changes.", status: "planned", weeks: ["KW 21"] },
-      { name: "CMDB-Basis & Applikationslandschaft", desc: "Configuration Management Database: alle Systeme, Owners, Abhängigkeiten und Lizenzen dokumentieren. Redundanzen identifizieren, Schatten-IT adressieren.", status: "planned", weeks: ["KW 21", "KW 22"] }
-    ]
-  },
-  {
-    month: 3,
-    phase: "Phase III",
-    title: "Governance & Übergabe",
-    goal: "Prozesse institutionalisieren. Das Team trägt sie selbst – auch wenn ich weg bin.",
-    weeks: "Wochen 9–12 · KW 23–26",
-    deliverable: { icon: "◆", label: "Deliverable", text: "Governance-Dokumentation · 90-Tage-Bericht · Übergabe" },
-    tasks: [
-      { name: "Prozessdokumentation finalisieren", desc: "Runbooks und Playbooks für alle drei Prozesse: schritt-für-schritt, verständlich für das gesamte Team. Kein Consultingsprech – lebbare Praxis.", status: "planned", weeks: ["KW 23"] },
-      { name: "Verantwortlichkeiten zuordnen (RACI)", desc: "RACI-Matrix: Wer ist Responsible, Accountable, Consulted, Informed? Nach dem Mandat klar definiert – ohne Abhängigkeit von einer Person.", status: "planned", weeks: ["KW 23", "KW 24"] },
-      { name: "IT-Ops-Reporting für Nicole einführen", desc: "Monatliches Reporting an CIO: SLA-Performance, offene Probleme, Change-Übersicht, Applikationsstatus. Dashboard-basiert, keine manuellen Berichte.", status: "planned", weeks: ["KW 24"] },
-      { name: "Team-Enablement: Sandro & Silvan", desc: "Praxisnahe Schulung auf alle Prozesse: nicht nur Theorie, sondern gemeinsame Bearbeitung echter Tickets. Sandro & Silvan sollen sicher und selbstständig agieren.", status: "planned", weeks: ["KW 24", "KW 25"] },
-      { name: "90-Tage-Bericht erstellen", desc: "Strukturierte Rückschau: Was wurde erreicht? Was läuft noch? Offene Punkte und klare Empfehlungen für die Weiterführung – für Nicole und Marc.", status: "planned", weeks: ["KW 25"] },
-      { name: "Übergabe & Nachfolge-Empfehlung", desc: "Übergabebriefing an Nachfolger oder permanente Stelle. Empfehlung: Soll die Stelle intern oder extern besetzt werden? Profil-Definition für den nächsten IT-Support-Lead.", status: "planned", weeks: ["KW 26"] }
-    ]
-  }
-];
-
-function statusClass(s) {
-  if (s === 'done') return 'status-done';
-  if (s === 'progress') return 'status-progress';
-  return 'status-planned';
-}
-function statusLabel(s) {
-  if (s === 'done') return 'Abgeschlossen';
-  if (s === 'progress') return 'In Bearbeitung';
-  return 'Geplant';
-}
-function dotClass(s) {
-  if (s === 'done') return 'done';
-  if (s === 'progress') return 'progress';
-  return '';
-}
-
-function renderTimeline() {
-  document.getElementById('timelineSteps').innerHTML = roadmap.map((m, i) => `
-    <div class="t-step active" onclick="scrollTo('month-${i}')">
-      <div class="t-num">0${m.month}</div>
-      <div class="t-name">${m.title}</div>
-      <div class="t-weeks">${m.weeks}</div>
-    </div>
-  `).join('');
-}
-
-function renderMonths() {
-  document.getElementById('monthsGrid').innerHTML = roadmap.map((m, mi) => `
-    <div class="month-card" id="month-${mi}">
-      <div class="month-head">
-        <span class="month-num">0${m.month}</span>
-        <div class="month-phase">${m.phase}</div>
-        <div class="month-title">${m.title}</div>
-        <div class="month-goal">${m.goal}</div>
-        <div class="month-progress">
-          <div class="prog-bar"><div class="prog-fill" style="width:0%"></div></div>
-          <span class="prog-text">0 / ${m.tasks.length} Tasks</span>
-        </div>
-        <div class="month-deliverable">
-          <div class="del-icon">${m.deliverable.icon}</div>
-          <div class="del-body">
-            <div class="del-label">${m.deliverable.label}</div>
-            <div class="del-text">${m.deliverable.text}</div>
-          </div>
-        </div>
-      </div>
-      <div class="task-list">
-        ${m.tasks.map((t, ti) => `
-          <div class="task-row" id="tr-${mi}-${ti}" onclick="toggleTask(${mi},${ti})">
-            <div class="task-top">
-              <div class="task-dot ${dotClass(t.status)}"></div>
-              <div class="task-name">${t.name}</div>
-              <div class="task-chevron">▾</div>
-            </div>
-            <div class="task-body">
-              <div class="task-desc">${t.desc}</div>
-              <div class="task-meta">
-                <span class="status-tag ${statusClass(t.status)}">${statusLabel(t.status)}</span>
-                ${t.weeks.map(w => `<span class="week-tag">${w}</span>`).join('')}
-              </div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-}
-
-function toggleTask(mi, ti) {
-  document.getElementById(`tr-${mi}-${ti}`).classList.toggle('open');
-}
-
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-renderTimeline();
-renderMonths();
 </script>
 </body>
 </html>
