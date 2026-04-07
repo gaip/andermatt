@@ -1,0 +1,11 @@
+{
+  "name": "andermatt-roadmap",
+  "version": "1.0.0",
+  "description": "IT Transformation Roadmap for Andermatt Swiss Alps AG",
+  "scripts": {
+    "start": "npx serve .",
+    "deploy-gcp": "gcloud app deploy --project andermatt-roadmap-2026 --quiet",
+    "deploy-azure": "az webapp up --name andermatt-roadmap --sku F1",
+    "git-push": "git add . && git commit -m 'Sync all changes' && git push origin main"
+  }
+}
