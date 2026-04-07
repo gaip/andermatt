@@ -19,9 +19,10 @@ jobs:
 
       - name: Ensure publish profile secret is present
         shell: bash
+        env:
+          PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         run: |
-          pp="${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}"
-          if [[ -z "${pp}" ]]; then
+          if [[ -z "$PUBLISH_PROFILE" ]]; then
             echo "ERROR: AZURE_WEBAPP_PUBLISH_PROFILE secret is missing or empty."
             echo "Please set the secret in the repository settings with the publish profile"
             echo "downloaded from Azure Portal > App Service 'andermatt-roadmap' > Get publish profile."
@@ -35,6 +36,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'andermatt-roadmap'
+          # If slot-name is provided via manual dispatch, use it; otherwise default to production
           slot-name: ${{ github.event.inputs.slot-name != '' && github.event.inputs.slot-name || 'production' }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: '.'
