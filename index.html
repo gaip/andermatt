@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Transformation Roadmap · Andermatt Swiss Alps AG</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0f0f13;
+    --bg2: #1a1a24;
+    --bg3: #22223a;
+    --border: #2a2a3a;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --indigo: #6366f1;
+    --indigo2: #818cf8;
+    --green: #22c55e;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+    --m1: #6366f1;
+    --m2: #8b5cf6;
+    --m3: #06b6d4;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: rgba(15,15,19,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--indigo), var(--m3));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .logo-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .logo-sub {
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 1px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .badge-candidate {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: var(--text2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo), #a78bfa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 60px 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--indigo2);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--indigo);
+    border-radius: 2px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--indigo2), var(--m3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: var(--text2);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  /* STATS ROW */
+  .stats {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    min-width: 160px;
+  }
+
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text3);
+  }
+
+  .stat-value.accent { color: var(--indigo2); }
+  .stat-value.green { color: var(--green); }
+  .stat-value.cyan { color: var(--m3); }
+
+  /* TIMELINE */
+  .timeline-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+
+  .section-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 20px;
+  }
+
+  .timeline-bar {
+    display: flex;
+    align-items: center;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .timeline-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 180px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: background 0.2s;
+  }
+
+  .timeline-step:hover { background: var(--bg3); }
+  .timeline-step.active { background: var(--bg3); }
+
+  .timeline-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .timeline-step-info { flex: 1; }
+  .timeline-step-label { font-size: 13px; font-weight: 600; }
+  .timeline-step-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+  .timeline-arrow {
+    color: var(--text3);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) { .timeline-arrow { display: none; } }
+
+  /* MONTH GRID */
+  .months-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 900px) { .months-grid { grid-template-columns: 1fr; } }
+
+  .month-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .month-card:hover { border-color: var(--bg3); }
+
+  .month-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .month-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .month-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .month-goal {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+  .month-deliverable {
+    margin-top: 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .deliverable-icon {
+    font-size: 14px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .deliverable-text { font-size: 12px; color: var(--text2); line-height: 1.4; }
+  .deliverable-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 3px; }
+
+  /* TASKS */
+  .tasks-list { padding: 8px 0; }
+
+  .task-item {
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .task-item:last-child { border-bottom: none; }
+  .task-item:hover { background: rgba(255,255,255,0.02); }
+  .task-item.open { background: rgba(255,255,255,0.02); }
+
+  .task-header {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .task-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-planned { background: var(--text3); }
+  .status-progress { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+  .status-done { background: var(--green); box-shadow: 0 0 6px var(--green); }
+
+  .task-name {
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .task-expand {
+    font-size: 12px;
+    color: var(--text3);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .task-item.open .task-expand { transform: rotate(180deg); }
+
+  .task-detail {
+    display: none;
+    padding: 0 24px 16px 44px;
+  }
+
+  .task-item.open .task-detail { display: block; }
+
+  .task-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .task-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .badge-planned { background: rgba(100,116,139,0.15); color: var(--text3); }
+  .badge-progress { background: rgba(245,158,11,0.15); color: var(--yellow); }
+  .badge-done { background: rgba(34,197,94,0.15); color: var(--green); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+    gap: 20px;
+  }
+
+  .footer-left { font-size: 14px; color: var(--text2); }
+  .footer-left strong { color: var(--text); }
+  .footer-contact { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+  .footer-right {
+    display: flex;
+    gap: 12px;
+  }
+
+  .footer-tag {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: var(--text3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-tag span { color: var(--text2); font-weight: 500; }
+
+  /* PROGRESS PILL */
+  .progress-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 8px;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    max-width: 80px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s;
+  }
+
+  .week-chips {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 4px 24px 12px 44px;
+  }
+
+  .week-chip {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    background: var(--bg3);
+    color: var(--text3);
+    border: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">⛰️</div>
+    <div>
+      <div class="logo-text">IT Transformation Roadmap</div>
+      <div class="logo-sub">Andermatt Swiss Alps AG · 90-Tage-Plan</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="badge-candidate">
+      <div class="avatar">HT</div>
+      Hasan Turhal · Interim Head of IT Support
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">ITIL Transformation Mandate</div>
+  <h1>Governance & Prozesse in<br><span>90 Tagen verankern</span></h1>
+  <p class="hero-desc">
+    Dieses Dokument skizziert meinen Ansatz, um in drei Monaten saubere Incident-, Problem- und Change-Prozesse einzuführen, die Applikationslandschaft zu bereinigen und Governance nachhaltig im Hospitality-Bereich auszurollen.
+  </p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value accent">3</div>
+      <div class="stat-label">Monate · Mandat</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">16</div>
+      <div class="stat-label">Aufgaben total</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value green">5</div>
+      <div class="stat-label">Deliverables</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value cyan">2×/Woche</div>
+      <div class="stat-label">vor Ort in Andermatt</div>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-section">
+  <div class="section-title">Projektphasen</div>
+  <div class="timeline-bar">
+    <div class="timeline-step active" onclick="scrollToMonth(0)">
+      <div class="timeline-dot" style="background: rgba(99,102,241,0.2); color: #818cf8;">1</div>
+      <div class="timeline-step-info">
+        <div class="timeline-step-label" style="color:#818cf8;">Verstehen & Stabilisieren</div>
+        <div class="timeline-step-sub">Wochen 1–4</div>
+      </div>
+    </div>
+    <div class="timeline-arrow">→</div>
+    <div class="timeline-step" onclick="scrollToMonth(1)">
+      <div class="timeline-dot" style="background: rgba(139,92,246,0.2); color: #a78bfa;">2</div>
+      <div class="timeline-step-info">
+        <div class="timeline-step-label" style="color:#a78bfa;">Prozesse & Struktur</div>
+        <div class="timeline-step-sub">Wochen 5–8</div>
+      </div>
+    </div>
+    <div class="timeline-arrow">→</div>
+    <div class="timeline-step" onclick="scrollToMonth(2)">
+      <div class="timeline-dot" style="background: rgba(6,182,212,0.2); color: #22d3ee;">3</div>
+      <div class="timeline-step-info">
+        <div class="timeline-step-label" style="color:#22d3ee;">Governance & Übergabe</div>
+        <div class="timeline-step-sub">Wochen 9–12</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Monatspläne</div>
+  <div class="months-grid" id="monthsGrid"></div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    <strong>Hasan Turhal</strong> · Interim IT Manager
+    <div class="footer-contact">+41 76 465 87 21 · h.turhal@me.com</div>
+  </div>
+  <div class="footer-right">
+    <div class="footer-tag">📍 <span>Andermatt, UR</span></div>
+    <div class="footer-tag">🗓️ <span>Start: April 2026</span></div>
+    <div class="footer-tag">🎯 <span>Hospitality-Governance</span></div>
+  </div>
+</footer>
+
+<script>
+const roadmap = [
+  {
+    month: 1,
+    color: "#6366f1",
+    colorLight: "rgba(99,102,241,0.12)",
+    label: "Monat 1",
+    title: "Verstehen & Stabilisieren",
+    goal: "Sofortige Wirkung entfalten und Vertrauen im Team aufbauen – ohne alles auf einmal umzuwerfen.",
+    weeks: ["KW 15", "KW 16", "KW 17", "KW 18"],
+    deliverable: {
+      icon: "📊",
+      label: "Deliverable",
+      text: "Incident-Prozess live · Ticket-Dashboard · SLA-Baseline definiert"
+    },
+    tasks: [
+      {
+        title: "IST-Analyse: Tickets & Systeme",
+        description: "Alle laufenden Tickets analysieren (Volumen, Kategorien, Eskalationsmuster). Applikationslandschaft vollständig aufnehmen: Was wird aktiv genutzt, was ist Schatten-IT, was ist undokumentiert?",
+        status: "planned",
+        weeks: ["KW 15", "KW 16"]
+      },
+      {
+        title: "Team-Onboarding mit Sandro & Silvan",
+        description: "Gespräche mit Sandro Wüthrich und Silvan Bissig: Was funktioniert heute gut? Wo verliert das Team Zeit? Was wäre der grösste Gewinn aus diesem Mandat? Vertrauen als Fundament legen.",
+        status: "planned",
+        weeks: ["KW 15"]
+      },
+      {
+        title: "Incident-Klassifikation P1–P4 definieren",
+        description: "Einheitliches Prioritätsschema passend zu Hospitality-Betrieb (24/7, Saison-Peaks). P1 = Kritischer Ausfall (z.B. PMS down), P2 = wesentliche Einschränkung, P3 = Standard, P4 = Low Prio.",
+        status: "planned",
+        weeks: ["KW 16", "KW 17"]
+      },
+      {
+        title: "SLA-Targets festlegen",
+        description: "Response- und Resolution-Zeiten je Prioritätsstufe definieren. Abstimmung mit Marc und Nicole: was ist für den Hotelbetrieb realistisch und ausreichend?",
+        status: "planned",
+        weeks: ["KW 17"]
+      },
+      {
+        title: "Eskalationspfade dokumentieren",
+        description: "Wer entscheidet was bei P1 um 3 Uhr morgens? Klare Kette: IT-Supporter → IT-Lead → Marc → Nicole. Notfallkontakte und Bereitschaftsregelung festhalten.",
+        status: "planned",
+        weeks: ["KW 17"]
+      },
+      {
+        title: "Incident-Prozess in JSM abbilden",
+        description: "Alle definierten Prozesse technisch in Jira Service Management implementieren: Ticket-Typen, SLA-Konfiguration, Workflows, Automatisierungen und erstes Dashboard.",
+        status: "planned",
+        weeks: ["KW 18"]
+      }
+    ]
+  },
+  {
+    month: 2,
+    color: "#8b5cf6",
+    colorLight: "rgba(139,92,246,0.12)",
+    label: "Monat 2",
+    title: "Prozesse & Struktur",
+    goal: "Problem- und Change-Prozesse einführen. Wiederholungen vermeiden. Applikationslandschaft bereinigen.",
+    weeks: ["KW 19", "KW 20", "KW 21", "KW 22"],
+    deliverable: {
+      icon: "📋",
+      label: "Deliverable",
+      text: "Problem-Log · Change-Kalender · Applikations-Register (CMDB-Basis)"
+    },
+    tasks: [
+      {
+        title: "Root-Cause-Analyse: Top-10 Wiederholungstickets",
+        description: "Die 10 häufigsten wiederkehrenden Incidents aus Monat 1 identifizieren. Ursachen analysieren und Massnahmen definieren, die Wiederholung verhindern.",
+        status: "planned",
+        weeks: ["KW 19"]
+      },
+      {
+        title: "Known-Error-Database (KEDB) anlegen",
+        description: "Dokumentierte Fehler mit bekannten Ursachen und Workarounds. Entlastet das Team bei wiederkehrenden Problemen und beschleunigt die Lösungszeit.",
+        status: "planned",
+        weeks: ["KW 19", "KW 20"]
+      },
+      {
+        title: "Problem-Review-Cadence einführen",
+        description: "2× pro Monat strukturiertes Problem-Review-Meeting mit dem Team. Fokus: Was ist neu, was wurde gelöst, was braucht Eskalation?",
+        status: "planned",
+        weeks: ["KW 20"]
+      },
+      {
+        title: "RFC-Prozess definieren (lightweight)",
+        description: "Request for Change: einfaches, schlankes Formular für geplante Änderungen. Keine Bürokratie – aber Transparenz darüber, was wann geändert wird.",
+        status: "planned",
+        weeks: ["KW 20", "KW 21"]
+      },
+      {
+        title: "Mini-CAB einrichten",
+        description: "Change Advisory Board Minimalversion: Marc + Nicole + IT-Lead. Wöchentliches 30-Min-Fenster zur Genehmigung geplanter Changes. Notfall-Change-Verfahren separat definieren.",
+        status: "planned",
+        weeks: ["KW 21"]
+      },
+      {
+        title: "CMDB-Basis & Applikationslandschaft bereinigen",
+        description: "Configuration Management Database: alle Systeme, Owners, Abhängigkeiten und Lizenzen dokumentieren. Redundanzen identifizieren, Abkündigungen planen, Schatten-IT adressieren.",
+        status: "planned",
+        weeks: ["KW 21", "KW 22"]
+      }
+    ]
+  },
+  {
+    month: 3,
+    color: "#06b6d4",
+    colorLight: "rgba(6,182,212,0.12)",
+    label: "Monat 3",
+    title: "Governance & Übergabe",
+    goal: "Prozesse institutionalisieren. Das Team trägt sie selbst – auch wenn ich weg bin.",
+    weeks: ["KW 23", "KW 24", "KW 25", "KW 26"],
+    deliverable: {
+      icon: "✅",
+      label: "Deliverable",
+      text: "Governance-Dokumentation · 90-Tage-Bericht · Übergabebriefing"
+    },
+    tasks: [
+      {
+        title: "Prozessdokumentation finalisieren",
+        description: "Runbooks und Playbooks für alle drei Prozesse (Incident, Problem, Change): schritt-für-schritt, verständlich für das gesamte IT-Team. Kein Consultingsprech – lebbare Praxis.",
+        status: "planned",
+        weeks: ["KW 23"]
+      },
+      {
+        title: "Verantwortlichkeiten klar zuordnen",
+        description: "RACI-Matrix: Wer ist Responsible, Accountable, Consulted, Informed? Nach dem Mandat muss klar sein, wer welchen Prozess owned – ohne Abhängigkeit von einer Person.",
+        status: "planned",
+        weeks: ["KW 23", "KW 24"]
+      },
+      {
+        title: "IT-Ops-Reporting für Nicole einführen",
+        description: "Monatliches Reporting an CIO: SLA-Performance, offene Probleme, Change-Übersicht, Applikationsstatus. Dashboard-basiert, keine manuellen Berichte.",
+        status: "planned",
+        weeks: ["KW 24"]
+      },
+      {
+        title: "Team-Enablement: Sandro & Silvan",
+        description: "Praxisnahe Schulung auf alle Prozesse: nicht nur Theorie, sondern gemeinsame Bearbeitung echter Tickets nach neuen Prozessen. Sandro & Silvan sollen sicher und selbstständig agieren.",
+        status: "planned",
+        weeks: ["KW 24", "KW 25"]
+      },
+      {
+        title: "90-Tage-Bericht erstellen",
+        description: "Strukturierte Rückschau: Was wurde erreicht? Was läuft noch? Offene Punkte und klare Empfehlungen für die Weiterführung – für Nicole und Marc.",
+        status: "planned",
+        weeks: ["KW 25"]
+      },
+      {
+        title: "Übergabe & Nachfolge-Empfehlung",
+        description: "Übergabebriefing an Nachfolger oder permanente Stelle. Empfehlung: Soll die Stelle intern oder extern besetzt werden? Profil-Definition für den nächsten IT-Support-Lead.",
+        status: "planned",
+        weeks: ["KW 26"]
+      }
+    ]
+  }
+];
+
+function statusLabel(s) {
+  if (s === 'done') return 'Abgeschlossen';
+  if (s === 'progress') return 'In Bearbeitung';
+  return 'Geplant';
+}
+
+function statusClass(s) {
+  if (s === 'done') return 'badge-done';
+  if (s === 'progress') return 'badge-progress';
+  return 'badge-planned';
+}
+
+function dotClass(s) {
+  if (s === 'done') return 'status-done';
+  if (s === 'progress') return 'status-progress';
+  return 'status-planned';
+}
+
+function renderMonths() {
+  const grid = document.getElementById('monthsGrid');
+  grid.innerHTML = roadmap.map((m, mi) => `
+    <div class="month-card" id="month-${mi}">
+      <div class="month-header">
+        <div class="month-tag" style="background:${m.colorLight}; color:${m.color};">${m.label}</div>
+        <div class="month-title">${m.title}</div>
+        <div class="month-goal">${m.goal}</div>
+        <div class="progress-pill">
+          <span>${m.tasks.filter(t=>t.status==='done').length}/${m.tasks.length} Tasks</span>
+          <div class="progress-track">
+            <div class="progress-fill" style="width:${Math.round(m.tasks.filter(t=>t.status==='done').length/m.tasks.length*100)}%; background:${m.color};"></div>
+          </div>
+        </div>
+        <div class="month-deliverable">
+          <div class="deliverable-icon">${m.deliverable.icon}</div>
+          <div class="deliverable-text">
+            <div class="deliverable-label">${m.deliverable.label}</div>
+            ${m.deliverable.text}
+          </div>
+        </div>
+      </div>
+      <div class="tasks-list">
+        ${m.tasks.map((t, ti) => `
+          <div class="task-item" id="task-${mi}-${ti}" onclick="toggleTask(${mi}, ${ti})">
+            <div class="task-header">
+              <div class="task-status-dot ${dotClass(t.status)}"></div>
+              <div class="task-name">${t.title}</div>
+              <div class="task-expand">▼</div>
+            </div>
+            <div class="task-detail">
+              <div class="task-desc">${t.description}</div>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <span class="task-badge ${statusClass(t.status)}">
+                  ${t.status === 'done' ? '✓' : t.status === 'progress' ? '◉' : '○'} ${statusLabel(t.status)}
+                </span>
+                ${t.weeks.map(w => `<span class="week-chip">${w}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleTask(mi, ti) {
+  const el = document.getElementById(`task-${mi}-${ti}`);
+  el.classList.toggle('open');
+}
+
+function scrollToMonth(idx) {
+  const el = document.getElementById(`month-${idx}`);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+renderMonths();
+</script>
+</body>
+</html>
