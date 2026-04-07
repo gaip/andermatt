@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       slot-name:
-        description: 'Azure App Service deployment slot (leave empty for production)'
+        description: 'Azure App Service deployment slot (leave empty for the main site)'
         required: false
         default: ''
 
@@ -31,12 +31,12 @@ jobs:
 
       - name: Deploy to Azure Web App
         # NOTE: Deployment will fail if the publish profile secret does not match
-        # the target app ('andermatt-roadmap') and slot. Regenerate the publish profile
+        # the target app ('andermatt-roadmap'). Regenerate the publish profile
         # from Azure Portal if you see "Publish profile is invalid" errors.
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'andermatt-roadmap'
-          # If slot-name is provided via manual dispatch, use it; otherwise default to production
-          slot-name: ${{ github.event.inputs.slot-name != '' && github.event.inputs.slot-name || 'production' }}
+          # Removed the default 'production' value. If empty, it deploys to the main site.
+          slot-name: ${{ github.event.inputs.slot-name }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: '.'
